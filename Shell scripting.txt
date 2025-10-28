@@ -1,0 +1,385 @@
+Shell scripting
+----------------
+What is Shell ?
+---------------
+
+* Shell is a command line interface that access as a interface between user and kernel.
+
+Types of shells.
+----------------
+There are two types of shells.
+-------------------------------
+1) Geographical User Interface(GUI).
+     
+      1.KDE    --> K desktop environment.
+      2.G-NOME --> GNU's network, object model, environment.
+
+2) Command line interface (CLI).
+
+      1.Sh ---> Shell
+      2.Bash -> Brownie again, Shell.
+      3.Zsh --> Z Shell --> Commonly used in Mac OS.
+
+CLI
+====
+
+1)Sh ---> SHELL
+----------------
+  * Developed by Stephen Browney.
+  * It is most commonly used in older version of Linux.
+  * The main purpose of developing sh--shell is for scripting.
+  * It has programming language like features.
+  * It doesn't support command line editing.
+
+2) Bash ---> Brownie again, Shell.
+----------------------------------
+  * It is an advanced and enhanced version of Shell.
+  * It is most commonly used in almost every latest Linux version.
+  * It does support commandine editing.
+  * In Linux to see  available shell.
+      COMMAND
+               ---------------
+              |cat /etc/shell|
+               ---------------
+  * To see The current shell in Linux.
+      COMMAND
+               -------
+              |echo $0|
+               -------
+Shell Scripting
+---------------
+ * It is an executable file with a set of instructions that will be executed sequently.
+ * These instructions are  Return to a Execute commands on top of SH or bash shell.
+ * A script is decided whether it's a shell script or bash script based on shebang.
+
+Shebang
+-------
+1)#!/bin/sh
+------------
+      Then the script is consider as shell script.
+2)#!/bin/bash 
+-------------
+      Then the script is consider as Bash script.
+
+  * A shebang should be first line and a scripting file and it decided whether the command need to be executed on Sh or Bash.
+  * As a Devops engineer, shell scripting is necessary to automate daily tasks like (pulling code, checking logs, creating backup files, compressing files automatically).
+  * To execute a shell script file, it should be having executable permission.
+      EX:
+        chmod 777 ravin.txt
+        --------------------
+  * To execute a shell script file we have to call the file with absolute path
+      EX:
+        /home/ravin/Desktop
+        --------------------
+  * A shell scripting File can be created with .sh extension.
+
+  * In a shell script file, if there is any error in any of the statements, the script execution will throw the error and still goes to next command for execution.
+  * In a shell script we can write printing statement by using "echo" command.
+      EX:
+        echo "content"
+        --------------
+  * In shellscript we can write commands with "#".
+  * A shebang should always be in the first line. Writing it other lines won't be consider as a shebang, but it will be considered as a command.
+  
+
+                                                                VARIABLES
+                                                                ---------
+
+* Variables are like. Container that hole's and contain's data or values.
+* In shell scripting there is no data type concept, but data will be defined directly by Specifying it.
+
+*[valname = value ] -----> Syntax
+  EX:
+    e=10---> No space between.
+* To call a variable for its value use  $ along with variable name.
+
+   SYNTAX
+   ------
+      $ Variable name
+   
+   EX:
+      a=10
+      echo $a
+Output:
+------
+     10
+
+* To store output in a command, in a variable or in echo statements, provide the command with in back tick.
+ EX:
+   ` `
+                                                              OPERATORS
+                                                              ----------
+* Operators are used to perform to get a new value that has been done along with operators.
+
+Type of operators
+-----------------
+1) Arithmetic operators
+2) Relational operators
+3) Logical operators
+
+1) Arithmetic operators
+-----------------------
+   * Arithmetic operators always give a new value as output and we have (+,-,*,/)
+
+2) Relational operators
+------------------------
+   * These are performed between two operents and always return Boolean value. 0 as false and 1 as true.
+
+And we have (=(-eq),<(-lt),>(-gt),<=(-le),>=(-ge),!=(-ne))
+
+3) Logical operators
+--------------------   
+   * These are performed along with boolean value are conditions that returns boolean value and it always returns boolean's value. 0 as false and 1 as true.
+
+And we have (AND)    ,(OR) , (NOT)
+             &&-(a)  , ||  ,   !
+
+                                                            USER INPUT
+                                                            -----------
+
+* Use read to take inputs from the terminal at the script execution time.
+* To take user inputs, we can use the read command.
+Syntax
+------
+-------------------
+|read VariableName|
+-------------------
+   *Use to take a user input.
+-------------------------------
+|read -p "Content" VariableName|
+--------------------------------
+   * -p stands for "print"
+   *Use to print some content before taking a user input.
+---------------------
+|read -s VariableName|
+----------------------
+    * -s stands for "Secret"
+   *Use to take user input and hide it from the terminal.
+
+                                                       Conditional Statements
+                                                       ----------------------
+
+* It is used to execute a few sets of statements based on conditions, whether (True or False).
+We have:
+1)if
+2)if-else
+3)elif
+4)nested if
+
+1) if Statement
+---------------
+ * It works based on a condition and executes a few statements only if the condition is True.
+Syntax
+------
+if [ condition ]
+then
+# Statements
+fi
+
+2) if-else
+----------
+ * It will work based on a condition. If the condition will execute a few statements, then the condition is false, it will execute the else body statement.
+
+SYNTAX
+-------
+if [ condition ]
+then
+\# Statements
+else
+\# Statements
+fi
+
+3) elif
+---------
+ * When there are multiple conditions then there is a need to check and differentiate statements. Then, if there is a need to be executed for a different condition, we can go for elif.
+SYNTAX
+-------
+if [ condition ]
+then
+\# Statements
+elif [ condition ]
+then
+\# Statements
+fi
+
+4) Nested if
+-------------
+ * Writing an if conditional statement anywhere within a if else "ladder" is called nested if.
+
+                                                        Looping Statements
+                                                        ------------------
+* These are a type of statement that are used to execute a set of statements for multiple times.
+We have:
+1)for loop
+2)while loop
+3)until loop
+
+1)For Loop
+-----------
+* It is used to execute a set of statements based on a Range (or) based on a condition.
+* It is better to use a for loop when we know the number of iterations.
+
+syntax 1                      syntax2
+--------                      --------
+                  |
+for variable in range      | for ((var=value;condition;updation))
+do                         |do
+   #statement              | #statement
+done                       |done
+
+2)While Loop
+-------------
+* It is used to execute a few set of statements based on a condition.
+* It will execute statements only if the condition is true and it will stop the loop if the condition is false.
+* No proper managing of condition will end up in loop.
+SYNTAX:
+-------
+while [ condition ]
+do
+#Statement
+done
+
+3) Until Loop
+-------------
+* It is used to execute a few set of statements based on a condition.
+* It will execute statements only when the condition is false and it will stop the loop if the condition is true.
+SYNTAX
+------
+until [ condition ]
+do
+  # Statement
+done
+
+                                                  FILE OPERATORS
+                                                  --------------
+* These operators are used to check the existence of any files or directory.
+* This operators returns Boolean values
+* When using these operators along with it we have to mention "file or dirname"
+
+-e → Existence [-e file.sh]
+-d → directory Existence [-d dir1]
+-f → file Existence [-f file.sh]
+
+-s operator
+-----------
+* -s stands for size and checks for a file existence and if it is not empty.
+* Returns True if file is existence and not empty else false
+* Even if a file is existing but empty
+
+-z operator
+-----------
+* -z stands for Zero and is used to check if a variable is having Null initialization
+
+Exit 0
+-------
+  it is used to stop forcefully of a script file 
+
+                                                    Positional Parameters
+                                                    ---------------------
+
+* These are types of parameters that can be used in shell scripting & values are passed along side with script execution.
+Ex: 
+./script.sh ,     hello    , world
+      $0    ,       $1     ,   $2
+
+* Each value having position and value can be utilized with said position number.
+* Positions will start with Zero i.e. $0.
+* where 0th position indicates the executable file, nothing but the shell scripting file.
+
+Ex: ./script.sh
+echo $0
+echo $1
+echo $2
+
+Ex: ./script.sh , king  ,01
+        01      , 2     ,3
+                                        
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
