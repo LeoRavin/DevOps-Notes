@@ -1,0 +1,123 @@
+MAVEN
+-----
+Build Process
+--------------
+* The process of compiling, unit testing, and compressing is called a build process.
+And once this process is completed, we will get a package, also called a build.
+This package will have an extension.
+.jar -> Java
+.war -> web archive
+.exe -> executable
+.zip (.php, .py) -> Zip
+
+Build Automation Tools
+-----------------------
+* These tools are used to automatically compile, unit test, package, and download all dependencies and also helps in deploying the package.
+Build tools will compile all the files in a structured manner.
+Each build tool is developed to perform the same task but in a different way and with different efficiency.
+
+Ant Build Tool
+--------------
+* It's an open-source build automation tool.
+* Developed by Apache Software.
+* It supports a wide range of programming languages like (Java, Kotlin, Groovy).
+* Ant Build Tool helps in writing all dependencies in a file in XML syntax (Extensible Markup Language).
+* Ant Build Tool doesn't follow a Build life cycle.
+
+Gradle Build Tool
+-----------------
+* It's an open-source build automation tool.
+* It is a very popular tool and commonly used for complex projects or enterprise-level projects.
+* It supports a wide range of programming languages like (mainly Java, C++, C#, JS, Kotlin, Ruby, Groovy, etc.).
+* In Gradle, dependencies are written in a file in Groovy syntax.
+
+Maven Build Automation Tool
+---------------------------
+* It is an open-source build automation tool.
+* It is developed by Apache Software in a year 2004.
+* It is most commonly used for mid-range projects.
+* It supports a wide range of programming languages (mainly Java, C++, PHP, Ruby, Scala, etc.).
+* In Maven, the build tool, the dependency declaration is written in a file called POM.xml in extensible markup language syntax.
+* Maven follows a build life cycle which makes it easier to use.
+* Maven tool helps in automatic compile, unit test, and compress.
+
+* POM.xml
+* Stands for Project Object Model, a file which has information related to the project, package name, source file location, dependencies, plugins (additional features), which packages need to be generated (meaning a Java file, etc.).
+
+* Maven can execute all its commands only by reading the pom.xml file.
+* Maven has the capability to generate source directory and test directory. Also, it has the capability to generate code.
+* Maven keeps all its changes and compiles files in a folder called "target" within the project location.
+* Maven will download all dependencies and keep it in a folder called ".m2".
+
+Maven will download or utilize dependencies present in three repositories:
+--------------------------------------------------------------------------
+1)Local Repository
+2)Central Repository
+3)Remote Repository
+
+1) Local Repository
+-------------------
+* Dependencies which are already present in a local system.
+* Instead of Maven downloading a dependency, it will utilize the dependency which is already present in the local machine.
+* To utilize their dependencies,Maven doesn't required any internet
+
+2)Central Repository
+--------------------
+* It's a place present over the internet which is managed by Maven.
+* By default, when dependencies are not present in the local machine, Maven will download all dependencies from this central repository.
+* To download dependencies from the Central Repository, the internet is mandatory.
+
+3)Remote Repository
+--------------------
+* It's a location present over the internet which is commonly managed by one single organization.
+* To utilize the dependencies present in the remote repository, we have to specify the dependency location in the pom.xml file.
+* Maven is developed using Java programming language.
+* To execute Maven, Java is necessary.
+
+Maven Life cycle and phases
+----------------------------
+1) Validate
+------------
+Use to check the existence of a pom.xml file.
+Command:----> mvn validate
+
+2) Compile
+----------
+Use to compile the source file and keeps the compiled file in the target directory.
+Command: mvn compile
+
+3) Test
+--------
+Use to run the test cases or perform unit testing.
+Command: mvn test
+
+4) Package
+-----------
+Use to produce a package from the compiled source code.
+Command: mvn package
+
+5) verify
+----------
+Use to check the creation of a package.
+Command: mvn verify
+
+6) install
+-----------
+Use to download all dependencies and package into the .m2 directory.
+Command: mvn install
+
+7) deploy
+---------
+Use to deploy the package into a remote repository.
+Command: mvn deploy
+
+8)To skip a phase in Maven
+---------------------------
+Use -Dskip phase
+Example: prepare clean leaflets -Dskip install
+
+9) To execute a Jar file or War file
+------------------------------------
+Use Command: java -jar jarfilename
+
+
